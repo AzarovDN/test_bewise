@@ -47,7 +47,7 @@ async def save_question(questions_list, db: 'Session'):
         if await _services.check_question(question_id=question['question_id'], db=db):
             counter += 1
             continue
-
+        # загружаю вопрос в таблицу
         await _services.save_question(question=question, db=db)
 
     if counter != 0:
